@@ -70,8 +70,12 @@ public class Backup {
                     .forEach(p -> {
 
                         Path source = Paths.get(p.getAbsolutePath());
-                        String nameForTarget = p.getAbsolutePath().substring(p.getAbsolutePath().lastIndexOf("\\")+1);
-                        Path target = Paths.get(finalDestenationPath + nameForTarget);
+
+                        //String nameForTarget = p.getAbsolutePath().substring(p.getAbsolutePath().lastIndexOf("\\")+1);
+
+                        File f = new File("C:\\Hello\\AnotherFolder\\The File Name.PDF");
+
+                        Path target = Paths.get(finalDestenationPath + f.getName());
 
                         try {
                             Files.copy(source, target, REPLACE_EXISTING);
@@ -88,7 +92,7 @@ public class Backup {
                         }
 
                         try {
-                            Files.write(Paths.get(finalFileOut), p.getAbsolutePath().getBytes(), StandardOpenOption.APPEND);
+                            Files.write(Paths.get(finalFileOut), (p.getAbsolutePath() + "\r\n").getBytes(), StandardOpenOption.APPEND);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
