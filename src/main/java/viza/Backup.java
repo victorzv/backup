@@ -73,7 +73,7 @@ public class Backup {
 
                         //String nameForTarget = p.getAbsolutePath().substring(p.getAbsolutePath().lastIndexOf("\\")+1);
 
-                        File f = new File("C:\\Hello\\AnotherFolder\\The File Name.PDF");
+                        File f = new File(p.getAbsolutePath());
 
                         Path target = Paths.get(finalDestenationPath + f.getName());
 
